@@ -185,7 +185,7 @@ export class YandexDriver extends Oauth2Driver<YandexAccessToken, YandexScopes> 
   }
 
   /**
-   * Returns the request with access_token and version api
+   * Returns the request with Authorization header
    */
   protected getAuthenticatedRequest(token: string) {
     const request = this.httpClient(this.config.userInfoUrl || this.userInfoUrl)
