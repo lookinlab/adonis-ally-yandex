@@ -1,0 +1,67 @@
+{
+  "name": "adonis-ally-yandex",
+  "version": "0.1.0",
+  "description": "A driver of AdonisJS Ally for Yandex",
+  "main": "build/providers/index.js",
+  "files": [
+    "build/src",
+    "build/providers",
+    "build/standalone.js",
+    "build/standalone.d.ts",
+    "build/instructions.md"
+  ],
+  "scripts": {
+    "clean": "del build",
+    "copyfiles": "copyfiles \"instructions.md\" build",
+    "compile": "npm run lint && npm run clean && tsc",
+    "build": "npm run compile && npm run copyfiles",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint . --ext=.ts",
+    "format": "prettier --write .",
+    "version": "npm run build"
+  },
+  "typings": "./build/standalone.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lookinlab/adonis-ally-yandex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lookinlab/adonis-ally-yandex/issues"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis-ally",
+    "adonis-yandex",
+    "adonis-ally-yandex"
+  ],
+  "author": "LookinGit",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/ally": "^4.1.0",
+    "@adonisjs/core": "^5.1.11",
+    "@types/node": "^16.4.13",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^4.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-adonis": "^1.3.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "@adonisjs/ally": "^4.0.0",
+    "@adonisjs/core": "^5.0.0"
+  },
+  "adonisjs": {
+    "instructionsMd": "./build/instructions.md",
+    "env": {
+      "YANDEX_CLIENT_ID": "",
+      "YANDEX_CLIENT_SECRET": ""
+    },
+    "types": "adonis-ally-yandex",
+    "providers": [
+      "adonis-ally-yandex"
+    ]
+  }
+}
